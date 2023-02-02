@@ -1,0 +1,13 @@
+function maxArea(height: number[]): number {
+    let result = 0;
+    
+    for (let i = 0; i < height.length; i++) {
+        for (let j = (height.length - 1); j >= i; j--) {
+            const wi = j - i;
+            const he = Math.min(height[i], height[j]);
+            const area = wi * he;
+            result = Math.max(result, area);
+        }
+    }
+    
+    return result;
